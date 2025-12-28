@@ -177,10 +177,13 @@ huggingface-cli download microsoft/phi-2 --local-dir ./models/phi-2
 ### build the vector store
 python vector.py
 
+
 ## Create a .env file in the project root
 HF_MODEL_NAME=./models/phi-2
 OPENROUTER_API_KEY=your_openrouter_api_key_here
 
+## run
+python rag.py
 streamlit run app.py # run the application
 ````
 
