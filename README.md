@@ -166,7 +166,7 @@ Documents are chunked, embedded, indexed, and retrieved at query time.
 
 ## 🚀 Running the Project
 
-````bash
+```bash
 python -m venv venv # Create a virtual environment
 source venv/bin/activate      # Mac/Linux
 venv\Scripts\activate         # Windows
@@ -177,17 +177,13 @@ huggingface-cli download microsoft/phi-2 --local-dir ./models/phi-2
 ### build the vector store
 python vector.py
 
-
 ## Create a .env file in the project root
 HF_MODEL_NAME=./models/phi-2
 OPENROUTER_API_KEY=your_openrouter_api_key_here
-
-## run
+# run
 python rag.py
 streamlit run app.py # run the application
-````
-
-
+```
 
 ## ✅ Conclusion
 
@@ -200,7 +196,7 @@ This project demonstrates a **complete, grounded, and transparent RAG pipeline**
 - Comparative evaluation of local vs API-based LLMs
 
 The observed limitations of the local model provide valuable insights into LLM capability trade-offs, fulfilling both mandatory and bonus criteria.
-````
+
 ```
 ## 💬 Chatbot Interface
 
@@ -263,9 +259,10 @@ The chatbot interface demonstrates:
 - Real-world usability beyond static Q&A
 
 ```
+
 ```
 ## 🌐 Live Demo
 
+👉 [Indecimal Mini RAG App](https://build-a-mini-rag-6v2ovw7hmqkmkh9ennfstq.streamlit.app/)
 
-👉 **Streamlit App:** https://build-a-mini-rag-6v2ovw7hmqkmkh9ennfstq.streamlit.app/
 ```
