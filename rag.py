@@ -85,7 +85,13 @@ def load_local_llm():
     return llm
 
 
-llm = load_local_llm()
+# llm = load_local_llm()
+llm = None
+
+if os.path.exists(HF_MODEL_NAME):
+    llm = load_local_llm()
+else:
+    llm = None  # fallback to OpenRouter
 
 #Retriever
 retriever = get_retriever(k=3)
@@ -127,8 +133,8 @@ def generate_answer(query: str, model_type: str = "local") -> Dict:
 
     from llm_openrouter import generate_openrouter_answer
 
-    if model_type == "local" and not os.path.exists("./models/phi-2"):
-        model_type = "openrouter"
+    if model_type == "local" and llm is None:
+    model_type = "openrouter"
 
     #Retrieve documents WITH distance
     docs_and_scores = retriever.vectorstore.similarity_search_with_score(
