@@ -201,3 +201,71 @@ This project demonstrates a **complete, grounded, and transparent RAG pipeline**
 
 The observed limitations of the local model provide valuable insights into LLM capability trade-offs, fulfilling both mandatory and bonus criteria.
 ````
+```
+## 💬 Chatbot Interface
+
+This project is implemented as an **interactive chatbot-style RAG assistant** using **Streamlit**.
+
+### 🧑‍💻 How the Chatbot Works
+
+- Users interact with the system through a chat interface
+- Each user message is treated as a query to the RAG pipeline
+- The assistant:
+  1. Retrieves relevant document chunks using FAISS
+  2. Generates a grounded answer using the selected LLM (Phi-2 or Mistral-7B)
+  3. Displays the answer along with retrieved context for transparency
+
+Conversation state is maintained using **Streamlit session state**, enabling a continuous chat experience.
+
+---
+
+### 🗑️ Clear Chat
+
+A **Clear Chat** button is provided in the UI.
+
+- Clicking **Clear Chat**:
+  - Clears all previous messages from the conversation
+  - Resets the chat history
+  - Restarts the application state using `st.rerun()`
+
+This allows users to begin a fresh conversation at any time.
+
+---
+
+### 🚪 Ending the Chatbot Session
+
+No special command is required to exit the chatbot.
+
+Users can end the session by:
+- Closing the browser tab
+- Refreshing the page
+- Clicking the **Clear Chat** button
+
+This behavior follows standard web-based chatbot UX patterns.
+
+---
+
+### 🧠 Design Rationale
+
+- Chat-based interaction feels natural and intuitive
+- Avoids special exit keywords that may confuse users
+- Matches real-world AI assistant behavior (e.g., ChatGPT-style UX)
+- Clean separation between UI (Streamlit) and RAG logic
+
+---
+
+### ✅ Why This Matters
+
+The chatbot interface demonstrates:
+- Practical deployment of a RAG system
+- Stateful UI design with Streamlit
+- Safe and grounded AI behavior
+- Real-world usability beyond static Q&A
+
+```
+```
+## 🌐 Live Demo
+
+
+👉 **Streamlit App:** https://build-a-mini-rag-6v2ovw7hmqkmkh9ennfstq.streamlit.app/
+```
