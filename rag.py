@@ -127,6 +127,9 @@ def generate_answer(query: str, model_type: str = "local") -> Dict:
 
     from llm_openrouter import generate_openrouter_answer
 
+    if model_type == "local" and not os.path.exists("./models/phi-2"):
+        model_type = "openrouter
+
     #Retrieve documents WITH distance
     docs_and_scores = retriever.vectorstore.similarity_search_with_score(
         query, k=3
