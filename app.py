@@ -1,6 +1,7 @@
 
 import streamlit as st
 from rag import generate_answer
+import os
 
 # Page Configuration
 st.set_page_config(
@@ -21,7 +22,14 @@ model_choice = st.radio(
 )
 
 model_type = "local" if "Local" in model_choice else "openrouter"
+MODEL_PATH = "./models/phi-2"
 
+if model_type == "local" and not os.path.exists(MODEL_PATH):
+    st.info(
+        "⚠️ Local Phi-2 model is not available in this deployment. "
+        "Automatically switching to OpenRouter (Mistral-7B)."
+    )
+    model_type = "openrouter"
 # User Input
 
 query = st.text_input(
